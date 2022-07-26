@@ -1,0 +1,6 @@
+@font-face {
+    font-family: "imb-plex-sans";
+    src: url("./fonts/IBMPlexSans.woff") format("woff"),
+      url("./fonts/IBMPlexSans.woff2") format("woff2");
+  }
+  
