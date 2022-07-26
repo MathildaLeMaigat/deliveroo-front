@@ -1,24 +1,164 @@
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "imb-plex-sans" sans-serif;
-}
-
-/* img{max-width: 100%;
-max-height: 100%;} */
+/* General Rules */
 
 h1{
-  font-size: 40px;
+  font-size: 32px;
+  color: #454949;
+  font-weight: bold;
+  margin: 30px 0;
 }
 
 h2{
-  font-size: 30px;
-}
-h3{
-  font-size: 20px;
+  font-size: 24px;
+  margin: 30px 0;
+  color: #454949;
 }
 
-.popular {
-  color: orange;
+h3{
+  font-size: 18;
 }
+
+/* HEADER */
+header {
+height: 60px;
+border-bottom: 1px solid lightgray;
+display: flex;
+align-items: center;
+background-color: white;
+}
+
+header p{
+  width: 1200px;
+  margin: 0 auto;
+  color: #02CDBD;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* CONTAINER */
+body{
+  font-family: "imb-plex-sans", sans-serif;
+  background-color: #F4F5F5;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  background-color: white;
+}
+
+.banner{
+   /* border: 2px solid black; */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  height: 15rem;
+  gap: 3rem;
+  align-items: center;
+  padding: 20px;
+}
+
+.banner-left{
+ max-width: 70%;
+
+}
+
+.banner-left p{
+font-size: 19px;
+color: #888C8C;
+line-height: 30px;
+}
+
+ .banner-right{
+  max-width: 30%;
+ }
+
+ .banner img{
+  height: 200px;
+  width: 350px;
+  border-radius: 10px;
+ }
+
+/* Main-left */
+
+ main{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  /* border: red 2px solid; */
+ }
+
+ .main-left{
+  max-width: 70%;
+ }
+
+ .meal-container{
+  /* border: 2px solid red; */
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+ }
+
+ article{
+  /* border: 2px solid green; */
+  display: flex;
+  width: calc(50% - 1rem);
+  height: 9rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 165px;
+  background-color: white;
+  border-radius: 10px;
+ }
+
+ .text{
+  flex: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+ }
+
+ .meal-container .image{
+  flex: 40%;
+ }
+
+ .meal-container .image img{
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+ }
+
+ .text p{
+  font-size: 14px;
+  color: #888C8C;
+line-height: 20px;
+ }
+
+ .popular{
+  color: orange;
+  margin-left: 1rem;
+ }
+
+ /* Main right */
+
+ .main-right{
+  /* border: black 2px solid; */
+  background-color: white;
+  width: 30%;
+  height: 250px;
+  margin-top: 30px;
+  border-radius: 10px;
+ }
+
+ .main-right .basket{
+  background-color: #02CDBD;
+  color: white;
+  width: 330px;
+  padding: 20px;
+  margin: 10px 10px;
+  border-radius: 10px;
+  border: none;
+ }
