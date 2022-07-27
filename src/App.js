@@ -36,13 +36,12 @@ function App() {
       </header>
       <div className="main-container">
         <Banner restaurant={data.restaurant} />
-        <main>
-          <Category
-            category={data.categories}
-            basket={basket}
-            setBasket={setBasket}
-          />
-        </main>
+
+        <Category
+          category={data.categories}
+          basket={basket}
+          setBasket={setBasket}
+        />
       </div>
     </div>
   );

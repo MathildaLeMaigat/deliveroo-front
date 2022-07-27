@@ -10,33 +10,35 @@ const Category = ({ category, basket, setBasket }) => {
     return total.toFixed(2);
   };
   return (
-    <div className="main-left">
-      {category.map((category, index) => {
-        return (
-          category.meals.length > 0 && (
-            <section key={index}>
-              <div className="sub-main">
-                <h2>{category.name}</h2>
+    <main>
+      <div className="main-left">
+        {category.map((category, index) => {
+          return (
+            category.meals.length > 0 && (
+              <section key={index}>
+                <div className="sub-main">
+                  <h2>{category.name}</h2>
 
-                <div className="meal-container">
-                  {category.meals.map((meal, index) => {
-                    return (
-                      <Meal
-                        meal={meal}
-                        basket={basket}
-                        setBasket={setBasket}
-                        index={index}
-                      />
-                    );
-                  })}
+                  <div className="meal-container">
+                    {category.meals.map((meal, index) => {
+                      return (
+                        <Meal
+                          meal={meal}
+                          basket={basket}
+                          setBasket={setBasket}
+                          index={index}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            </section>
-          )
-        );
-      })}{" "}
+              </section>
+            )
+          );
+        })}{" "}
+      </div>
       <Basket basket={basket} setBasket={setBasket} getTotal={getTotal} />
-    </div>
+    </main>
   );
 };
 

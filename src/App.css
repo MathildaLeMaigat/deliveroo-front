@@ -97,6 +97,7 @@ line-height: 30px;
 
  .main-left{
   max-width: 70%;
+  /* border: 3px solid green; */
  }
 
  .meal-container{
@@ -153,7 +154,7 @@ line-height: 20px;
   /* border: black 2px solid; */
   background-color: white;
   width: 30%;
-  height: 250px;
+  height: 100%;
   margin-top: 30px;
   border-radius: 10px;
  }
@@ -166,4 +167,18 @@ line-height: 20px;
   margin: 10px 10px;
   border-radius: 10px;
   border: none;
+ }
+
+.basket-items {
+  /* border: green solid 2px; */
+  font-size: 13px;
+  color: #454949;
+  line-height: 30px;
+
+}
+
+ .bottom-basket{
+  /* border: 2px red solid; */
+  padding: 20px;
+  line-height: 30px;
  }
