@@ -17,6 +17,11 @@ h3{
   font-size: 18;
 }
 
+h4{
+  font-size: 15px;
+  font-weight: bold;
+}
+
 /* HEADER */
 header {
 height: 60px;

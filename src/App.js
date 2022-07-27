@@ -5,7 +5,15 @@ import axios from "axios";
 function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [counter, setCounter] = useState([0]);
+  const [basket, setBasket] = useState([]);
+
+  const getTotal = () => {
+    let total = 0;
+    for (let i = 0; i < basket.length; i++) {
+      total += basket[i].price * basket[i].quantity;
+    }
+    return total.toFixed(2);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +63,30 @@ function App() {
                       <div className="meal-container">
                         {category.meals.map((meal, num) => {
                           return (
-                            <article key={num}>
+                            <article
+                              key={num}
+                              onClick={() => {
+                                const newBasket = [...basket];
+
+                                let alreadyInBasket = false;
+                                for (let i = 0; i < newBasket.length; i++)
+                                  if (newBasket[i].id === meal.id) {
+                                    newBasket[i].quantity++;
+                                    alreadyInBasket = true;
+                                  }
+                                if (alreadyInBasket === false) {
+                                  newBasket.push({
+                                    title: meal.title,
+                                    price: meal.price,
+                                    id: meal.id,
+                                    quantity: 1,
+                                  });
+                                }
+
+                                setBasket(newBasket);
+                                // console.log(meal);
+                              }}
+                            >
                               <div className="text">
                                 <h3>{meal.title}</h3>
                                 <p>{meal.description}</p>
@@ -82,16 +113,51 @@ function App() {
             })}
           </div>
           <div className="main-right">
-            <div>
+            {basket.length === 0 ? (
+              <button className="basket">Pannier Vide</button>
+            ) : (
               <button className="basket">Valider mon pannier</button>
-            </div>
-            {counter.map((counter, index) => {
-              <div key={index}>
-                <button>-</button>
-                <span>{counter}</span>
-                <button>+</button>
-              </div>;
+            )}
+            {basket.map((basketItem, index) => {
+              return (
+                <div className="basket-items" key={index}>
+                  <button
+                    onClick={() => {
+                      const newBasket = [...basket];
+
+                      if (newBasket[index].quantity === 1) {
+                        newBasket.splice(index, 1);
+                      } else {
+                        newBasket[index].quantity--;
+                      }
+
+                      setBasket(newBasket);
+                    }}
+                  >
+                    -
+                  </button>
+                  <span>{basketItem.quantity}</span>
+                  <button
+                    onClick={() => {
+                      const newBasket = [...basket];
+                      newBasket[index].quantity++;
+                      setBasket(newBasket);
+                    }}
+                  >
+                    +
+                  </button>
+                  <span>{basketItem.title}</span>
+                  <span> // {basketItem.price} €</span>
+                </div>
+              );
             })}
+            {basket.length > 0 && (
+              <>
+                <p>Sous Total: {getTotal()} €</p>
+                <p>Frais de livraison : 2.5 €</p>
+                <h4>Total: {Number(getTotal()) + 2.5}€</h4>
+              </>
+            )}
           </div>
         </main>
       </div>
