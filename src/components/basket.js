@@ -10,42 +10,57 @@ const Basket = ({ basket, setBasket, getTotal }) => {
         {basket.map((basketItem, index) => {
           return (
             <div className="basket-items" key={index}>
-              <button
-                onClick={() => {
-                  const newBasket = [...basket];
+              <div>
+                {" "}
+                <button
+                  onClick={() => {
+                    const newBasket = [...basket];
 
-                  if (newBasket[index].quantity === 1) {
-                    newBasket.splice(index, 1);
-                  } else {
-                    newBasket[index].quantity--;
-                  }
+                    if (newBasket[index].quantity === 1) {
+                      newBasket.splice(index, 1);
+                    } else {
+                      newBasket[index].quantity--;
+                    }
 
-                  setBasket(newBasket);
-                }}
-              >
-                -
-              </button>
-              <span>{basketItem.quantity}</span>
-              <button
-                onClick={() => {
-                  const newBasket = [...basket];
-                  newBasket[index].quantity++;
-                  setBasket(newBasket);
-                }}
-              >
-                +
-              </button>
-
-              <span> {basketItem.title}</span>
-              <span> // {basketItem.price} €</span>
+                    setBasket(newBasket);
+                  }}
+                >
+                  -
+                </button>
+                <span className="basket-quantity">{basketItem.quantity}</span>
+                <button
+                  onClick={() => {
+                    const newBasket = [...basket];
+                    newBasket[index].quantity++;
+                    setBasket(newBasket);
+                  }}
+                >
+                  +
+                </button>
+                <span> {basketItem.title}</span>
+              </div>
+              <div>
+                <span> {basketItem.price} €</span>
+              </div>
             </div>
           );
         })}
         {basket.length > 0 && (
           <>
-            <p>Sous Total: {getTotal()} €</p>
-            <p>Frais de livraison : 2.5 €</p>
-            <h4>Total: {Number(getTotal()) + 2.5}€</h4>
+            <div className="under-total">
+              <div className="under-total1">
+                <p>Sous Total: </p>
+                <p>{getTotal()} €</p>
+              </div>
+              <div className="under-total1">
+                <p>Frais de livraison : </p>
+                <p>2.5 €</p>
+              </div>
+            </div>
+            <div className="total">
+              <p>Total: </p>
+              <p>{Number(getTotal()) + 2.5}€</p>
+            </div>
           </>
         )}
       </div>

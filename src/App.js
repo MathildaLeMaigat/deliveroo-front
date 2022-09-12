@@ -6,6 +6,8 @@ import axios from "axios";
 import Banner from "./components/Banner";
 import Category from "./components/Category";
 
+import logo from "./assets/logo.png";
+
 function App() {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +34,11 @@ function App() {
   ) : (
     <div className="App">
       <header>
-        <p>deliveroo</p>
+        <img
+          alt="logo"
+          src={logo}
+          // style={{ height: "100px", width: "100px" }}
+        />
       </header>
       <div className="main-container">
         <Banner restaurant={data.restaurant} />
