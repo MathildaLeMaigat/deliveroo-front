@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   return isLoading ? (
-    <span>Loading...</span>
+    <span className="loader">Loading...</span>
   ) : (
     <div className="App">
       <header>

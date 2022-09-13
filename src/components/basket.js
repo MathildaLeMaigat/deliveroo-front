@@ -11,7 +11,6 @@ const Basket = ({ basket, setBasket, getTotal }) => {
           return (
             <div className="basket-items" key={index}>
               <div>
-                {" "}
                 <button
                   onClick={() => {
                     const newBasket = [...basket];
@@ -40,7 +39,7 @@ const Basket = ({ basket, setBasket, getTotal }) => {
                 <span> {basketItem.title}</span>
               </div>
               <div>
-                <span> {basketItem.price} €</span>
+                <span className="basket-price"> {basketItem.price}€</span>
               </div>
             </div>
           );

@@ -10,7 +10,11 @@ const Category = ({ category, basket, setBasket }) => {
     return total.toFixed(2);
   };
   return (
-    <main>
+    <main className="bottom-main-container">
+      <div className="basket-hidden-large">
+        <Basket basket={basket} setBasket={setBasket} getTotal={getTotal} />
+      </div>
+
       <div className="main-left">
         {category.map((category, index) => {
           return (
@@ -35,9 +39,11 @@ const Category = ({ category, basket, setBasket }) => {
               </section>
             )
           );
-        })}{" "}
+        })}
       </div>
-      <Basket basket={basket} setBasket={setBasket} getTotal={getTotal} />
+      <div className="basket-hidden-small">
+        <Basket basket={basket} setBasket={setBasket} getTotal={getTotal} />
+      </div>
     </main>
   );
 };
